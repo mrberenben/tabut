@@ -1,0 +1,137 @@
+@import "./variables.css";
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--colors-light-default);
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--colors-light-400);
+  border: 2px solid var(--colors-light-default);
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ui-colors-light-600);
+}
+
+::selection {
+  background-color: rgb(var(--colors-primary));
+  color: var(--colors-light-default);
+}
+
+* {
+  border: none;
+  outline: none;
+  list-style: none;
+  box-sizing: border-box;
+  border-collapse: inherit;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  block-size: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--colors-light-default);
+  color: var(--colors-dark-default);
+  font: normal 500 16px/1.6667 -apple-system, Inter,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  line-height: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+p {
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+button,
+input {
+  box-shadow: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  font: inherit;
+}
+
+input::placeholder {
+  font-weight: normal;
+  color: var(--colors-light-400);
+}
+
+ul,
+ol,
+li {
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+}
+
+textarea {
+  resize: none;
+}
+
+#__next {
+  block-size: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}

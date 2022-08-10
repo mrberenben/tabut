@@ -1,0 +1,7 @@
+.app_layout, .app_main {
+  display: flex;
+  flex-direction: column;
+
+  inline-size: 100%;
+  block-size: 100%;
+}
