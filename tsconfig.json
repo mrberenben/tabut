@@ -20,7 +20,6 @@
       "@components/*": ["src/components/*"],
       "@pages/*": ["src/pages/*"],
       "@layout/*": ["src/layout/*"],
-      "@hoc/*": ["src/hoc/*"],
       "@utils/*": ["src/utils/*"],
       "@lib/*": ["src/libs/*"],
       "@styles/*": ["src/styles/*"],
