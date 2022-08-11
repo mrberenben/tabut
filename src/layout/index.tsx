@@ -21,6 +21,10 @@ function Layout({ pageTitle, pageDescription, children }: LayoutProps) {
   return (
     <div className={styles.app_layout}>
       <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
         <meta name="Description" content={pageDescription} />
         <title>{pageTitle}</title>
 
