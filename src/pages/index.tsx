@@ -19,6 +19,8 @@ const Home: NextPage<PageProps> = ({ first_id, second_id }) => {
 
   const voteMutation = trpc.useMutation(["cast-vote"]);
 
+  console.log(first);
+
   const vote = (selected: number) => {
     if (first.data && second.data) {
       if (selected === first.data.id) {

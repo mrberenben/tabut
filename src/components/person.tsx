@@ -12,8 +12,8 @@ const Person: React.FC<{
       <img
         src={props.person.image}
         alt={props.person.name}
-        width={128}
-        height={128}
+        width={256}
+        height={256}
       />
       {`${props.person.id} - ${props.person.name}`}
     </div>

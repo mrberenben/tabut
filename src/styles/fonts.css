@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Arcade Classic";
+  src: url('../assets/fonts/ArcadeClassic/ArcadeClassic.eot');
+  src: url('../assets/fonts/ArcadeClassic/ArcadeClassic.eot?#iefix') format('embedded-opentype'),
+      url('../assets/fonts/ArcadeClassic/ArcadeClassic.woff2') format('woff2'),
+      url('../assets/fonts/ArcadeClassic/ArcadeClassic.woff') format('woff'),
+      url('../assets/fonts/ArcadeClassic/ArcadeClassic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+

@@ -1,0 +1,106 @@
+[
+  {
+    "personId": 1,
+    "strength": 2,
+    "dexterity": 3,
+    "intelligent": 5,
+    "charisma": 3,
+    "durability": 3
+  },
+  {
+    "personId": 2,
+    "strength": 3,
+    "dexterity": 2,
+    "intelligent": 3,
+    "charisma": 5,
+    "durability": 4
+  },
+  {
+    "personId": 3,
+    "strength": 4,
+    "dexterity": 2,
+    "intelligent": 3,
+    "charisma": 4,
+    "durability": 5
+  },
+  {
+    "personId": 4,
+    "strength": 2,
+    "dexterity": 3,
+    "intelligent": 1,
+    "charisma": 5,
+    "durability": 3
+  },
+  {
+    "personId": 5,
+    "strength": 2,
+    "dexterity": 2,
+    "intelligent": 5,
+    "charisma": 3,
+    "durability": 3
+  },
+  {
+    "personId": 6,
+    "strength": 5,
+    "dexterity": 2,
+    "intelligent": 1,
+    "charisma": 4,
+    "durability": 5
+  },
+  {
+    "personId": 7,
+    "strength": 1,
+    "dexterity": 1,
+    "intelligent": 5,
+    "charisma": 5,
+    "durability": 3
+  },
+  {
+    "personId": 8,
+    "strength": 3,
+    "dexterity": 2,
+    "intelligent": 3,
+    "charisma": 3,
+    "durability": 3
+  },
+  {
+    "personId": 9,
+    "strength": 4,
+    "dexterity": 1,
+    "intelligent": 2,
+    "charisma": 3,
+    "durability": 5
+  },
+  {
+    "personId": 10,
+    "strength": 5,
+    "dexterity": 2,
+    "intelligent": 1,
+    "charisma": 3,
+    "durability": 4
+  },
+  {
+    "personId": 11,
+    "strength": 3,
+    "dexterity": 2,
+    "intelligent": 5,
+    "charisma": 4,
+    "durability": 4
+  },
+  {
+    "personId": 12,
+    "strength": 2,
+    "dexterity": 5,
+    "intelligent": 4,
+    "charisma": 5,
+    "durability": 1
+  },
+  {
+    "personId": 13,
+    "strength": 1,
+    "dexterity": 4,
+    "intelligent": 4,
+    "charisma": 5,
+    "durability": 1
+  }
+]

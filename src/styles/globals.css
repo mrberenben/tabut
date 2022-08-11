@@ -1,30 +1,12 @@
 @import "./variables.css";
-
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--colors-light-default);
-  border-radius: 12px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--colors-light-400);
-  border: 2px solid var(--colors-light-default);
-  border-radius: 12px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--ui-colors-light-600);
-}
+@import "./fonts.css";
 
 ::selection {
-  background-color: rgb(var(--colors-primary));
-  color: var(--colors-light-default);
+  background-color: transparent;
 }
 
 * {
+  user-select: none;
   border: none;
   outline: none;
   list-style: none;
@@ -53,9 +35,9 @@ body {
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--colors-light-default);
-  color: var(--colors-dark-default);
-  font: normal 500 16px/1.6667 -apple-system, Inter,
+  background-color: var(--colors-dark-100);
+  color: var(--colors-light-100);
+  font: normal normal 24px/1.6667 "Arcade Classic", -apple-system, Inter,
     BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   -webkit-font-smoothing: antialiased;
@@ -124,14 +106,4 @@ textarea {
 
 #__next {
   block-size: 100%;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
 }

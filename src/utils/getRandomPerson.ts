@@ -1,4 +1,4 @@
-const MAX_PERSON_ID = 2;
+const MAX_PERSON_ID = 13;
 
 export const getRandomPerson: (expect?: number) => number = expect => {
   const person_id = Math.floor(Math.random() * MAX_PERSON_ID + 1);

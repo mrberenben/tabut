@@ -19,9 +19,9 @@ yarn dev
 
 ## TODO
 
-- [ ] enter complete data to database and fetch
+- [x] enter complete data to database and fetch
+- [x] add stats to person model
 - [ ] create results page
-- [ ] add stats to person model
 - [ ] create person page
 - [ ] use next/image for image caching and optimiziation
 - [ ] fix ssr errors and improve performance
