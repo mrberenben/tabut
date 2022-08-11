@@ -16,9 +16,9 @@ datasource db {
 model Vote {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
-  voted     Person   @relation(name: "voted", fields: [votedId], references: [id])
+  voted     Person   @relation(name: "votesFor", fields: [votedId], references: [id])
   votedId   Int
-  against   Person   @relation(name: "against", fields: [againstId], references: [id])
+  against   Person   @relation(name: "votesAgainst", fields: [againstId], references: [id])
   againstId Int
 
   @@index([votedId])
@@ -29,6 +29,6 @@ model Person {
   id      Int    @id
   name    String
   image   String
-  vote    Vote[] @relation("voted")
-  against Vote[] @relation("against")
+  vote    Vote[] @relation("votesFor")
+  against Vote[] @relation("votesAgainst")
 }

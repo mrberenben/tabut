@@ -5,7 +5,7 @@ import { prisma } from "@server/utils/prisma";
 export const appRouter = trpc
   .router()
   .query("get-person-by-id", {
-    input: z.object({ id: z.number().nullish() }), // TODO: ssr throws an error when id is not nullish.
+    input: z.object({ id: z.number() }), // TODO: ssr throws an error when id is not nullish.
     resolve({ input }) {
       return { id: input.id, name: "Ali Deniz Bakar" };
     }
@@ -18,7 +18,8 @@ export const appRouter = trpc
     async resolve({ input }) {
       const vote = await prisma.vote.create({
         data: {
-          ...input
+          votedId: input.voted,
+          againstId: input.against
         }
       });
       return { success: true, vote };
