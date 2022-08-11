@@ -1,16 +1,10 @@
 import * as trpc from "@trpc/server";
 import { z } from "zod";
 
-export const appRouter = trpc.router().query("hello", {
-  input: z
-    .object({
-      text: z.string().nullish()
-    })
-    .nullish(),
+export const appRouter = trpc.router().query("get-person-by-id", {
+  input: z.object({ id: z.number() }),
   resolve({ input }) {
-    return {
-      greeting: `hello ${input?.text ?? "world"}`
-    };
+    return input.id;
   }
 });
 

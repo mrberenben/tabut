@@ -1,17 +1,21 @@
 import type { NextPage } from "next";
-import Layout from "@layout/index";
+import { useMemo } from "react";
 import { trpc } from "@utils/trpc";
 
+// components
+import Layout from "@layout/index";
+
+// utils
+import { getOptionsForVote } from "@utils/getRandomPerson";
+
 const Home: NextPage = () => {
-  const { data, isLoading } = trpc.useQuery(["hello", { text: "Eren" }]);
+  const [first, second] = useMemo(() => getOptionsForVote(), []);
 
-  if (isLoading) return <div>Loading..</div>;
-
-  if (data) return <div>{data.greeting}</div>;
+  console.log(first, second);
 
   return (
     <Layout pageTitle="Tabut" pageDescription="Kim kimi tabut yapar?">
-      a
+      {first} - {second}
     </Layout>
   );
 };
