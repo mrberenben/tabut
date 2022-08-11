@@ -25,9 +25,23 @@ model Vote {
 }
 
 model Person {
-  id      Int    @id
+  id      Int     @id @default(autoincrement())
   name    String
   image   String
-  vote    Vote[] @relation("votesFor")
-  against Vote[] @relation("votesAgainst")
+  stats   Stats[] @relation("stats")
+  vote    Vote[]  @relation("votesFor")
+  against Vote[]  @relation("votesAgainst")
+}
+
+model Stats {
+  id          String @id @default(cuid())
+  person      Person @relation(name: "stats", fields: [personId], references: [id])
+  personId    Int
+  strength    Int    @default(0)
+  intelligent Int    @default(0)
+  dexterity   Int    @default(0)
+  charisma    Int    @default(0)
+  durability  Int    @default(0)
+
+  @@index([personId])
 }

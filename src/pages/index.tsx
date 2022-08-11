@@ -30,7 +30,8 @@ const Home: NextPage<PageProps> = ({ first_id, second_id }) => {
   };
 
   if (first.isLoading || second.isLoading) return <div>loading...</div>;
-  if (!first.data || !second.data) return <div>error while loading data.</div>;
+  if (first.isError || second.isError || !first.data || !second.data)
+    return <div>error while loading data.</div>;
 
   return (
     <Layout pageTitle="Tabut" pageDescription="Kim kimi tabut yapar?">

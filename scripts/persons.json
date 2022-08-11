@@ -1,0 +1,37 @@
+[
+  {
+    "id": 3,
+    "name": "Deniz Yanbollu",
+    "image": "https://cdn.discordapp.com/attachments/1007168216377864342/1007168301530615859/deniz.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Ferit",
+    "image": "https://cdn.discordapp.com/attachments/1007168216377864342/1007168301962637382/ferit.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Göktürk Karaçayır",
+    "image": "https://cdn.discordapp.com/attachments/1007168216377864342/1007168302180732998/gokturk.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Eren Süloğlu",
+    "image": "https://cdn.discordapp.com/attachments/1007168216377864342/1007168302436601967/suloglu.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Tugay Karamustafa",
+    "image": "https://cdn.discordapp.com/attachments/1007168216377864342/1007168302650490930/tugi.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Yasin Metehan Yılmaz",
+    "image": "https://cdn.discordapp.com/attachments/1007168216377864342/1007168302881181746/yasin.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Burak Çapa",
+    "image": "https://cdn.discordapp.com/attachments/1007168216377864342/1007168301291548792/capa.jpg"
+  }
+]

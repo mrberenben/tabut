@@ -6,8 +6,11 @@ export const appRouter = trpc
   .router()
   .query("get-person-by-id", {
     input: z.object({ id: z.number() }), // TODO: ssr throws an error when id is not nullish.
-    resolve({ input }) {
-      return { id: input.id, name: "Ali Deniz Bakar" };
+    async resolve({ input }) {
+      const person = await prisma.person.findFirst({ where: { id: input.id } });
+
+      if (!person) throw new Error("Person not found");
+      return person;
     }
   })
   .mutation("cast-vote", {

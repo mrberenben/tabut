@@ -8,9 +8,15 @@ const Person: React.FC<{
   vote: () => void;
 }> = props => {
   return (
-    <div
-      onClick={() => props.vote()}
-    >{`${props.person.id} - ${props.person.name}`}</div>
+    <div onClick={() => props.vote()}>
+      <img
+        src={props.person.image}
+        alt={props.person.name}
+        width={128}
+        height={128}
+      />
+      {`${props.person.id} - ${props.person.name}`}
+    </div>
   );
 };
 
