@@ -11,7 +11,16 @@ const Home: NextPage = () => {
   const [selected, setSelected] = useState<number | undefined>(undefined);
 
   // trpc
-  const pair = trpc.useQuery(["get-person-pair"]);
+  const {
+    data: pair,
+    isLoading,
+    isError,
+    refetch
+  } = trpc.useQuery(["get-person-pair"], {
+    refetchInterval: false,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false
+  });
   const voteMutation = trpc.useMutation(["cast-vote"]);
 
   // pick person
@@ -21,24 +30,27 @@ const Home: NextPage = () => {
 
   // cast a vote
   const vote = useCallback(() => {
-    if (selected && pair.data) {
-      if (selected === pair.data.first.id) {
-        voteMutation.mutate({
-          voted: pair.data.first.id,
-          against: pair.data.second.id
-        });
-      } else {
-        voteMutation.mutate({
-          voted: pair.data.second.id,
-          against: pair.data.first.id
-        });
-      }
+    if (!selected || !pair) return;
+
+    if (selected === pair.first.id) {
+      voteMutation.mutate({
+        voted: pair.first.id,
+        against: pair.second.id
+      });
+    } else {
+      voteMutation.mutate({
+        voted: pair.second.id,
+        against: pair.first.id
+      });
     }
-  }, [selected, pair.data, voteMutation]);
+
+    refetch();
+    setSelected(undefined);
+  }, [selected, pair, voteMutation, refetch]);
 
   // data controls
-  if (pair.isLoading) return <div>loading...</div>;
-  if (pair.isError || !pair.data) return <div>error while loading data.</div>;
+  if (isLoading) return <div>loading...</div>;
+  if (isError || !pair) return <div>error while loading data.</div>;
 
   return (
     <Layout pageTitle="Tabut" pageDescription="Kim kimi tabut yapar?">
@@ -46,15 +58,15 @@ const Home: NextPage = () => {
 
       <div className={styles.battleground}>
         <PersonCard
-          person={pair.data.first}
+          person={pair.first}
           selected={selected}
-          pick={() => pick(pair.data.first.id)}
+          pick={() => pick(pair.first.id)}
         />
         {" vs "}
         <PersonCard
-          person={pair.data.second}
+          person={pair.second}
           selected={selected}
-          pick={() => pick(pair.data.second.id)}
+          pick={() => pick(pair.second.id)}
         />
       </div>
 
