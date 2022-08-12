@@ -1,27 +1,33 @@
 import * as trpc from "@trpc/server";
 import { z } from "zod";
 import { prisma } from "@server/utils/prisma";
+import { getOptionsForVote } from "@utils/getRandomPerson";
 
 export const appRouter = trpc
   .router()
-  .query("get-person-by-id", {
-    input: z.object({ id: z.number() }), // FIX: ssr throws an error when id is not nullish.
-    async resolve({ input }) {
-      const person = await prisma.person.findFirst({
-        where: { id: input.id }
-      });
-      if (!person) throw new Error("Person not found");
+  .query("get-person-pair", {
+    async resolve() {
+      // get person count from db
+      const person_count = await prisma.person.count();
 
-      const stats = await prisma.stats.findFirst({
-        where: { personId: person.id }
+      // select two random people
+      const [first, second] = getOptionsForVote(person_count);
+      const pair = await prisma.person.findMany({
+        where: { id: { in: [first, second] } }
+      });
+
+      // if pairing fails
+      if (pair.length !== 2) throw new Error("Could not find pair.");
+
+      // get stats for both people
+      const stats = await prisma.stats.findMany({
+        where: { personId: { in: [pair[0].id, pair[1].id] } }
       });
       if (!stats) throw new Error("Person not found");
 
       return {
-        id: person.id,
-        name: person.name,
-        image: person.image,
-        stats
+        first: { ...pair[0], ...{ stats: stats[0] } },
+        second: { ...pair[1], ...{ stats: stats[1] } }
       };
     }
   })

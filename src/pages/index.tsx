@@ -7,20 +7,11 @@ import styles from "@styles/pages/index.module.css";
 import Layout from "@layout/index";
 import PersonCard from "@components/person-card";
 
-// utils
-import { getOptionsForVote } from "@utils/getRandomPerson";
-
-type PageProps = {
-  first_id: number;
-  second_id: number;
-};
-
-const Home: NextPage<PageProps> = ({ first_id, second_id }) => {
+const Home: NextPage = () => {
   const [selected, setSelected] = useState<number | undefined>(undefined);
 
   // trpc
-  const first = trpc.useQuery(["get-person-by-id", { id: first_id }]);
-  const second = trpc.useQuery(["get-person-by-id", { id: second_id }]);
+  const pair = trpc.useQuery(["get-person-pair"]);
   const voteMutation = trpc.useMutation(["cast-vote"]);
 
   // pick person
@@ -30,19 +21,24 @@ const Home: NextPage<PageProps> = ({ first_id, second_id }) => {
 
   // cast a vote
   const vote = useCallback(() => {
-    if (selected && first.data && second.data) {
-      if (selected === first.data.id) {
-        voteMutation.mutate({ voted: first.data.id, against: second.data.id });
+    if (selected && pair.data) {
+      if (selected === pair.data.first.id) {
+        voteMutation.mutate({
+          voted: pair.data.first.id,
+          against: pair.data.second.id
+        });
       } else {
-        voteMutation.mutate({ voted: second.data.id, against: first.data.id });
+        voteMutation.mutate({
+          voted: pair.data.second.id,
+          against: pair.data.first.id
+        });
       }
     }
-  }, [selected, first.data, second.data, voteMutation]);
+  }, [selected, pair.data, voteMutation]);
 
   // data controls
-  if (first.isLoading || second.isLoading) return <div>loading...</div>;
-  if (first.isError || second.isError || !first.data || !second.data)
-    return <div>error while loading data.</div>;
+  if (pair.isLoading) return <div>loading...</div>;
+  if (pair.isError || !pair.data) return <div>error while loading data.</div>;
 
   return (
     <Layout pageTitle="Tabut" pageDescription="Kim kimi tabut yapar?">
@@ -50,15 +46,15 @@ const Home: NextPage<PageProps> = ({ first_id, second_id }) => {
 
       <div className={styles.battleground}>
         <PersonCard
-          person={first.data}
+          person={pair.data.first}
           selected={selected}
-          pick={() => pick(first.data.id)}
+          pick={() => pick(pair.data.first.id)}
         />
         {" vs "}
         <PersonCard
-          person={second.data}
+          person={pair.data.second}
           selected={selected}
-          pick={() => pick(second.data.id)}
+          pick={() => pick(pair.data.second.id)}
         />
       </div>
 
@@ -75,14 +71,3 @@ const Home: NextPage<PageProps> = ({ first_id, second_id }) => {
 };
 
 export default Home;
-
-export const getStaticProps: GetStaticProps = () => {
-  const [first, second] = getOptionsForVote();
-
-  return {
-    props: {
-      first_id: first,
-      second_id: second
-    }
-  };
-};

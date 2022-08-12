@@ -6,7 +6,7 @@ import { inferQueryResponse } from "@pages/api/trpc/[trpc]";
 // components
 import StatSlot from "@components/stat-slot";
 
-type PersonResponse = inferQueryResponse<"get-person-by-id">;
+type PersonResponse = inferQueryResponse<"get-person-pair">["first" | "second"];
 type PersonCardProps = {
   person: PersonResponse;
   selected: number | undefined;
