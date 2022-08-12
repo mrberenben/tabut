@@ -14,3 +14,7 @@ export interface IStats {
   dexterity: number;
   durability: number;
 }
+
+export type AsyncReturnType<T> = T extends (...args: any[]) => Promise<infer U>
+  ? U
+  : never;

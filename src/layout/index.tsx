@@ -19,6 +19,8 @@ type LayoutProps = {
 
 function Layout({ pageTitle, pageDescription, children }: LayoutProps) {
   const { pathname } = useRouter();
+  const ACTIVE_ROUTE_CLASSNAME = (path: string) =>
+    pathname === path ? styles.route_active : undefined;
 
   return (
     <div className={styles.app_layout}>
@@ -49,6 +51,23 @@ function Layout({ pageTitle, pageDescription, children }: LayoutProps) {
         </Link>
       </header>
       <main className={styles.app_main}>{children}</main>
+
+      <footer className={styles.app_footer}>
+        <ul>
+          <li>
+            <Link href="/">
+              <a className={ACTIVE_ROUTE_CLASSNAME("/")}>home</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/leaderboard">
+              <a className={ACTIVE_ROUTE_CLASSNAME("/leaderboard")}>
+                leaderboard
+              </a>
+            </Link>
+          </li>
+        </ul>
+      </footer>
     </div>
   );
 }

@@ -24,6 +24,29 @@
   transition: 150ms transform ease;
 }
 
+.app_footer {
+  display: flex;
+
+  margin-block: auto 1rem;
+}
+
+.app_footer ul {
+  display: flex;
+  align-items: center;
+
+  gap: 1.5rem;
+}
+
+.app_footer a {
+  color: var(--colors-light-800);
+
+  transition: 150ms color ease;
+}
+
+.app_footer a.route_active {
+  color: var(--colors-light-100)
+}
+
 @media screen and (hover: hover) and (pointer: fine) {
   .app_header a:hover {
     transform: translateY(-4px);

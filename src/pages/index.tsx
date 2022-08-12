@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from "next";
+import type { NextPage } from "next";
 import { useState, useCallback } from "react";
 import { trpc } from "@utils/trpc";
 import styles from "@styles/pages/index.module.css";
