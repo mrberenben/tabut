@@ -1,6 +1,8 @@
 import React from "react";
-import Head from "next/head";
 import { useRouter } from "next/router";
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
 import styles from "@styles/layout/layout.module.css";
 
 /**
@@ -33,7 +35,19 @@ function Layout({ pageTitle, pageDescription, children }: LayoutProps) {
           href={`${process.env.NEXT_PUBLIC_BASE_URL}${pathname}`}
         />
       </Head>
-
+      <header className={styles.app_header}>
+        <Link href="/">
+          <a>
+            <Image
+              src="/logo.webp"
+              alt="Tabut"
+              layout="fixed"
+              width={244}
+              height={41}
+            />
+          </a>
+        </Link>
+      </header>
       <main className={styles.app_main}>{children}</main>
     </div>
   );

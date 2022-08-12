@@ -1,23 +1,28 @@
 import React from "react";
+import styles from "@styles/components/person-card.module.css";
 import { inferQueryResponse } from "@pages/api/trpc/[trpc]";
 
 type PersonResponse = inferQueryResponse<"get-person-by-id">;
 
-const Person: React.FC<{
+const PersonCard: React.FC<{
   person: PersonResponse;
   vote: () => void;
 }> = props => {
   return (
-    <div onClick={() => props.vote()}>
+    <button
+      type="button"
+      className={styles.person_card}
+      onClick={() => props.vote()}
+    >
       <img
         src={props.person.image}
         alt={props.person.name}
         width={256}
         height={256}
       />
-      {`${props.person.id} - ${props.person.name}`}
-    </div>
+      {props.person.name}
+    </button>
   );
 };
 
-export default Person;
+export default PersonCard;

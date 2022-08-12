@@ -1,8 +1,11 @@
 :root {
   /* colors */
-  --colors-primary: 44, 2, 214;
-  --colors-primary-hover: #ef58ad;
-  --colors-primary-active: #be4487;
+  --colors-primary: 175, 111, 43;
+  --colors-primary-dark: 152, 96, 36;
+  --colors-primary-darker: 135, 86, 53;
+
+  --colors-action-default: #F2C409;
+  --colors-action-dark: #E59400;
 
   --colors-secondary: 235, 230, 253;
 

@@ -1,0 +1,59 @@
+.page_title {
+  font-size: 36px;
+  
+  margin-block-end: 3rem;
+}
+
+.battleground {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+
+  gap: 3rem;
+  margin-block-end: 3rem;
+}
+
+.cast_vote {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 28px;
+  color: var(--colors-light-default);
+  
+  padding: 0 1.5rem;
+  background: var(--colors-action-default);
+  box-shadow: inset -4px -4px 0px 0px var(--colors-action-dark);
+
+  cursor: pointer;
+}
+
+.cast_vote:hover, .cast_vote:focus {
+  background: var(--colors-action-default);
+  box-shadow: inset -6px -6px 0px 0px var(--colors-action-dark);
+}
+
+.cast_vote:active {
+  box-shadow: inset 4px 4px 0px 0px var(--colors-action-dark);
+}
+
+.cast_vote:before, .cast_vote:after {
+  content: "";
+  position: absolute;
+  
+  inline-size: 100%;
+  block-size: 100%;
+  box-sizing: content-box;
+}
+.cast_vote:before {
+  top: -6px; left: 0;
+  border-top: 6px rgb(var(--colors-primary-dark)) solid;
+  border-bottom: 6px rgb(var(--colors-primary-dark)) solid;
+}
+.cast_vote:after {
+  left: -6px; top: 0;
+  border-left: 6px rgb(var(--colors-primary-dark)) solid;
+  border-right: 6px rgb(var(--colors-primary-dark)) solid;
+}
