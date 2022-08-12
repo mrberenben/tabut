@@ -23,9 +23,14 @@ const Home: NextPage<PageProps> = ({ first_id, second_id }) => {
   const second = trpc.useQuery(["get-person-by-id", { id: second_id }]);
   const voteMutation = trpc.useMutation(["cast-vote"]);
 
+  // pick person
+  const pick = useCallback((selected: number) => {
+    setSelected(prev => (selected === prev ? undefined : selected));
+  }, []);
+
   // cast a vote
   const vote = useCallback(() => {
-    if (first.data && second.data) {
+    if (selected && first.data && second.data) {
       if (selected === first.data.id) {
         voteMutation.mutate({ voted: first.data.id, against: second.data.id });
       } else {
@@ -46,16 +51,23 @@ const Home: NextPage<PageProps> = ({ first_id, second_id }) => {
       <div className={styles.battleground}>
         <PersonCard
           person={first.data}
-          vote={() => setSelected(first.data.id)}
+          selected={selected}
+          pick={() => pick(first.data.id)}
         />
         {" vs "}
         <PersonCard
           person={second.data}
-          vote={() => setSelected(second.data.id)}
+          selected={selected}
+          pick={() => pick(second.data.id)}
         />
       </div>
 
-      <button type="button" className={styles.cast_vote} onClick={vote}>
+      <button
+        type="button"
+        className={styles.cast_vote}
+        onClick={vote}
+        disabled={!selected}
+      >
         Vote
       </button>
     </Layout>

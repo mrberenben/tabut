@@ -11,7 +11,7 @@
   justify-content: center;
 
   gap: 3rem;
-  margin-block-end: 3rem;
+  margin-block-end: 4rem;
 }
 
 .cast_vote {
@@ -39,7 +39,7 @@
   box-shadow: inset 4px 4px 0px 0px var(--colors-action-dark);
 }
 
-.cast_vote:before, .cast_vote:after {
+.cast_vote::before, .cast_vote::after {
   content: "";
   position: absolute;
   
@@ -47,13 +47,20 @@
   block-size: 100%;
   box-sizing: content-box;
 }
-.cast_vote:before {
+
+.cast_vote::before {
   top: -6px; left: 0;
   border-top: 6px rgb(var(--colors-primary-dark)) solid;
   border-bottom: 6px rgb(var(--colors-primary-dark)) solid;
 }
-.cast_vote:after {
+
+.cast_vote::after {
   left: -6px; top: 0;
   border-left: 6px rgb(var(--colors-primary-dark)) solid;
   border-right: 6px rgb(var(--colors-primary-dark)) solid;
+}
+
+.cast_vote[disabled] {
+  pointer-events: none;
+  opacity: .75;
 }

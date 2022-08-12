@@ -1,9 +1,80 @@
 .person_card {
+  position: relative;
   display: flex;
   flex-direction: column;
 
-  justify-content: center;
-  align-items: center;
+  inline-size: 230px;
 
-  color: #fff;
+  background-color: rgb(var(--colors-card-background));
+  padding: 6px;
+
+  transition: 150ms transform ease, 150ms filter ease;
+}
+
+.person_card_selected {
+  transform: scale(1.025) translateY(-6px) !important;
+  box-shadow: 0 0 32px 16px rgba(var(--colors-primary), .295);
+}
+
+.person_card_unselected {
+  filter: brightness(.5);
+}
+
+.person_card::before, .person_card::after {
+  content: "";
+  position: absolute;
+  
+  inline-size: 100%;
+  block-size: 100%;
+  box-sizing: content-box;
+}
+
+.person_card::before {
+  top: -8px; left: 0;
+  border-top: 8px var(--colors-card-border) solid;
+  border-bottom: 8px var(--colors-card-border) solid;
+}
+
+.person_card::after {
+  left: -8px; top: 0;
+  border-left: 8px var(--colors-card-border) solid;
+  border-right: 8px var(--colors-card-border) solid;
+}
+
+.person_card_image {
+  position: relative;
+  display: flex;
+
+  inline-size: 100%;
+  padding-bottom: 100%;
+
+  border: 4px solid var(--colors-card-border);
+
+  clip-path: polygon(0% 2%, 2% 2%, 2% 0%, 98% 0%, 98% 2%, 100% 2%, 100% 98%, 98% 98%, 98% 100%, 2% 100%, 2% 98%, 0% 98%)
+}
+
+.person_card_name {
+  display: flex;
+  justify-content: center;
+
+  inline-size: 100%;
+
+  font-size: 18px;
+  text-align: center;
+  color: var(--colors-light-default);
+}
+
+.person_card_stats {
+  display: flex;
+  flex-direction: column;
+
+  gap: .5rem;
+}
+
+@media screen and (hover: hover) and (pointer: fine) {
+  .person_card:hover {
+    transform: translateY(-6px);
+    cursor: pointer;
+    box-shadow: 0 0 32px 16px rgba(var(--colors-primary), .295);
+  }
 }

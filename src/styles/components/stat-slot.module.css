@@ -1,0 +1,84 @@
+.stat_slot {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+  gap: 16px;
+
+  font-size: 16px;
+  color: var(--colors-light-500);
+}
+
+.stat_name {
+  line-height: 1;
+}
+
+.stat_bar_wrapper {
+  position: relative;
+  
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+
+  inline-size: 100%;
+  block-size: 12px;
+
+  background-color: var(--colors-card-bar);
+}
+
+.stat_bar_wrapper::before, .stat_bar_wrapper::after {
+  content: "";
+  position: absolute;
+  
+  inline-size: 100%;
+  block-size: 100%;
+  box-sizing: content-box;
+}
+
+.stat_bar_wrapper::before {
+  top: -2px; left: 0;
+  border-top: 2px var(--colors-card-canvas) solid;
+  border-bottom: 2px var(--colors-card-canvas) solid;
+}
+
+.stat_bar_wrapper::after {
+  left: -2px; top: 0;
+  border-left: 2px var(--colors-card-canvas) solid;
+  border-right: 2px var(--colors-card-canvas) solid;
+}
+
+.stat_bar {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  inline-size: 100%;
+  block-size: 100%;
+
+  background-color: var(--colors-card-bar);
+}
+
+.stat_bar:not([data-index="5"]) {
+  border-right: 2px solid var(--colors-card-canvas);
+}
+
+.stat_slot[data-stat-type="STR"] .stat_bar {
+  background-color: var(--colors-card-stats-str);
+}
+.stat_slot[data-stat-type="DEX"] .stat_bar {
+  background-color: var(--colors-card-stats-dex);
+}
+.stat_slot[data-stat-type="INT"] .stat_bar {
+  background-color: var(--colors-card-stats-int);
+}
+.stat_slot[data-stat-type="DUR"] .stat_bar {
+  background-color: var(--colors-card-stats-dur);
+}
+
+.stat_bar_empty {
+  background-color: var(--colors-card-bar);
+}
+
+.stat_bar_empty:not([data-index="5"]) {
+  border-right: 2px solid var(--colors-card-canvas);
+}
