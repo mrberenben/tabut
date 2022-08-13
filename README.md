@@ -21,7 +21,7 @@ yarn dev
 
 - [x] enter complete data to database and fetch
 - [x] add stats to person model
-- [ ] create results page
-- [ ] create person page
-- [ ] use next/image for image caching and optimiziation
-- [ ] fix ssr errors and improve performance
+- [x] create leaderboard page
+- [x] use next/image for image caching and optimiziation
+- [x] fix ssr errors and improve performance
+- [-] create person page
