@@ -71,6 +71,9 @@
 .stat_slot[data-stat-type="INT"] .stat_bar {
   background-color: var(--colors-card-stats-int);
 }
+.stat_slot[data-stat-type="CHA"] .stat_bar {
+  background-color: var(--colors-card-stats-cha);
+}
 .stat_slot[data-stat-type="DUR"] .stat_bar {
   background-color: var(--colors-card-stats-dur);
 }

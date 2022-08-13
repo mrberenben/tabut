@@ -40,7 +40,7 @@ const PersonCard: React.FC<PersonCardProps> = props => {
         <StatSlot stat="STR" value={props.person.stats.strength} />
         <StatSlot stat="INT" value={props.person.stats.intelligent} />
         <StatSlot stat="DEX" value={props.person.stats.dexterity} />
-        {/* <StatSlot stat="CHA" value={props.person.stats.charisma} /> */}
+        <StatSlot stat="CHA" value={props.person.stats.charisma} />
         <StatSlot stat="DUR" value={props.person.stats.durability} />
       </ul>
     </div>

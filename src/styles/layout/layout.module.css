@@ -24,6 +24,12 @@
   transition: 150ms transform ease;
 }
 
+.app_main h1 {
+  font-size: 36px;
+  
+  margin-block-end: 3rem;
+}
+
 .app_footer {
   display: flex;
 

@@ -1,0 +1,5 @@
+.card::before { 
+  content: counter(leaderboard) ".";
+  counter-increment: leaderboard;
+  margin-inline-end: .5rem;
+}

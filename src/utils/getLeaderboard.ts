@@ -24,3 +24,5 @@ export const getLeaderboard = async () => {
     ...{ stats: stats.find(stat => stat.personId === person.id) }
   }));
 };
+
+export type GetLeaderboard = typeof getLeaderboard;

@@ -1,0 +1,29 @@
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  block-size: 100%;
+  max-block-size: 400px;
+
+  padding-inline: 3rem;
+
+  overflow-y: auto;
+  counter-reset: leaderboard;
+}
+
+.leaderboard::-webkit-scrollbar {
+  width: 8px;
+}
+
+.leaderboard::-webkit-scrollbar-track {
+  background: var(--colors-dark-100);
+}
+
+.leaderboard::-webkit-scrollbar-thumb {
+  background: rgb(var(--colors-primary));
+}
+
+.leaderboard::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--colors-primary-dark));
+}

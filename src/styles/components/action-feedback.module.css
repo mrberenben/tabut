@@ -1,0 +1,13 @@
+.preloader {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+
+  inline-size: 100%;
+  block-size: 100%;
+
+  font-size: 24px;
+  color: var(--colors-light-100);
+}
