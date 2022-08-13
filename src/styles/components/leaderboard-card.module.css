@@ -1,5 +1,18 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  inline-size: 100%;
+  overflow: hidden;
+}
+
 .card::before { 
+  position: absolute;
   content: counter(leaderboard) ".";
   counter-increment: leaderboard;
-  margin-inline-end: .5rem;
+}
+
+.card span {
+  margin-inline-start: 3rem;
 }
